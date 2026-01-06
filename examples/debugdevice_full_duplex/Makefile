@@ -10,7 +10,7 @@ HOSTCC=gcc
 CXXFLAGS=-Wall -Wextra -O2 -ggdb
 HOSTCFLAGS=-Wall -Wextra -O2 -ggdb
 
-all: test terminal build/debugdev.ihx
+all: build/debugdev.ihx
 
 download: build/$(BASENAME).ihx
 	  ./download.sh $<

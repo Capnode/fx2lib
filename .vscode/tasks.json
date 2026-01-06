@@ -1,0 +1,21 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build fx2lib",
+            "type": "shell",
+            "command": "make",
+            "problemMatcher": ["$gcc"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+        },
+        {
+            "label": "Clean fx2lib",
+            "type": "shell",
+            "command": "make clean",
+            "problemMatcher": [],
+        }
+    ]
+}
