@@ -1,0 +1,11 @@
+setup.py
+cpp/__init__.py
+cpp/fx2.cpp
+cpp/fx2.i
+cpp/fx2.py
+fx2.egg-info/PKG-INFO
+fx2.egg-info/SOURCES.txt
+fx2.egg-info/dependency_links.txt
+fx2.egg-info/top_level.txt
+fx2load/__init__.py
+scripts/fx2load

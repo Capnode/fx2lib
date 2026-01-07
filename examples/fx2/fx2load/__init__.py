@@ -26,8 +26,8 @@ def openfx2(vid=0x04b4,pid=0x0082,idx=0):
     f.open(vid,pid,idx)
 
 def reset_device(reset):
- print reset and "Put device in reset" or "Set device to run"
- write_ram (0xe600,reset and '\x01' or '\x00', 1)
+ print("Put device in reset" if reset else "Set device to run")
+ write_ram (0xe600,b'\x01' if reset else b'\x00', 1)
  
 def write_ram(addr,data,length):
  transferred=0
@@ -40,10 +40,10 @@ def write_ram(addr,data,length):
     addr+transferred, 0,
     this_transfer_size )
   if (ret>0):
-   print "wrote %d bytes" % ret
+   print("wrote %d bytes" % ret)
    transferred+=ret
   else:
-   print "Error: %d" % ret
+   print("Error: %d" % ret)
    return
 
 def reset_bix(filename):
@@ -51,8 +51,8 @@ def reset_bix(filename):
   Use this function to reset your firmware.  You'll need to reopen the device afterward.
  """
  reset_device(True)
- bix=open(filename).read()
- print "loading bix file of length: %d" % len(bix) 
+ bix=open(filename, 'rb').read()
+ print("loading bix file of length: %d" % len(bix))
  write_ram( 0, bix,len(bix) );
  reset_device(False)
  f.close()

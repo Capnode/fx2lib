@@ -3,8 +3,12 @@
 // Compile with: sdcc -mmcs51 --model-large -o blink.ihx
 //  sdcc -mmcs51 -I../fx2lib/include --code-size 0x1c00 --xram-size 0x0200 --xram-loc 0x1c00 -o blink.ihx blink.c ../fx2lib/lib/delay.rel
 //
-// Load and run program in RAM: fx2tool -d 04b4:8613 load blink.ihx
-// Write program to EEPROM: fx2tool -d 04b4:8613 write_eeprom -f blink.ihx
+// Load and run program in RAM:
+//  fx2tool -d 04b4:8613 load blink.ihx
+
+// Write program to EEPROM:
+//  python ../../../utils/ihx2iic.py blink.ihx blink.iic
+//  fx2tool -d 04b4:8613 -F bin -B write_eeprom -W 1 -f blink.iic
 
 #include <fx2regs.h>
 #include <fx2macros.h>
