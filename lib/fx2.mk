@@ -91,8 +91,8 @@ $(BUILDDIR)/$(BASENAME).bix: $(BUILDDIR)/$(BASENAME).ihx
 $(BUILDDIR)/$(BASENAME).iic: $(BUILDDIR)/$(BASENAME).ihx
 	$(FX2LIBDIR)/utils/ihx2iic.py -v $(VID) -p $(PID) $< $@
 
-load: $(BUILDDIR)/$(BASENAME).bix
-	fx2load -v $(VID) -p $(PID) $(BUILDDIR)/$(BASENAME).bix
+load: $(BUILDDIR)/$(BASENAME).ihx
+	fx2tool -d $(VID):$(PID) load $(BUILDDIR)/$(BASENAME).ihx
 
 clean:
 	rm -f $(foreach ext, a51 asm ihx lnk lk lst map mem rel rst rest sym adb cdb bix, $(BUILDDIR)/*.${ext})
